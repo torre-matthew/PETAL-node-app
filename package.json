@@ -19,6 +19,7 @@
   "homepage": "https://github.com/torre-matthew/liri-node-app#readme",
   "dependencies": {
     "axios": "^0.18.0",
-    "dotenv": "^6.0.0"
+    "dotenv": "^6.0.0",
+    "inquirer": "^6.2.0"
   }
 }
