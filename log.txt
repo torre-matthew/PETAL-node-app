@@ -107,3 +107,79 @@ Band/Artist: j cole
 Movie Details
 Movie: Cabin Fever
 ==================
+Band or Artist Tour Dates
+Band/Artist: Ed Sheeran
+==================
+Band or Artist Tour Dates
+Band/Artist: Torre
+==================
+Band/Artist: Maroon 5
+==================
+Band or Artist Tour Dates
+Band/Artist: J. Cole
+==================
+Band or Artist Tour Dates
+Band/Artist: Torre
+==================
+Band/Artist: Ed Sheeran
+==================
+Song Info
+Song: Beat It
+==================
+Song Info
+Song: Torre
+==================
+Song Info
+Song: dafsasdfasdfasdf
+==================
+Song: Man on the moon
+==================
+Band or Artist Tour Dates
+Band/Artist: torre
+==================
+Song Info
+Song: Billie Jean
+==================
+Song Info
+Song: asdf;lkj
+==================
+Song Info
+Song: adsfasdfasdfadsfasfadsf
+==================
+Song Info
+Song: There should be no song with this name
+==================
+Song Info
+Song: Billie Jean
+==================
+Song Info
+Song: There should be no song with this title
+==================
+Song: Man in the mirror
+==================
+Song Info
+Song: No song by this name
+==================
+Movie Details
+Movie: Gotti
+==================
+Movie Details
+Movie: The Meg
+==================
+Movie Details
+Movie: This movie doesn't exist
+==================
+Movie Details
+Movie: Gotti 2018
+==================
+Movie Details
+Movie: The Meg
+==================
+Movie Details
+Movie: This movie doesn't exist, right?
+==================
+Movie: Mr. Nobody
+==================
+Movie Details
+Movie: This can't exist
+==================
