@@ -4,13 +4,14 @@ let inquirer = require("inquirer");
 let Spotify = require('node-spotify-api');
 let spotifyKeys = require("./keys.js");
 let fs = require("fs");
+let moment = require("moment");
 
 inquirer.prompt([
 {
     type: "list",
     name: "interest",
     message: "Hello! I'm Petal. What are you interested in today?",
-    choices: ["Band or Artist Tour Dates", "Song Info", "Movie Details", "Just Do something!"]
+    choices: ["Band or Artist Tour Dates", "Song Info", "Movie Details", "Nothing in particular. Surprise Me!"]
 
 }
 
@@ -39,7 +40,7 @@ function bandInTown(bandorartist) {
                 console.log("");
                 console.log(bandorartist + " will be performing at " + response.data[i].venue.name);
                 console.log(response.data[i].venue.city + " " + response.data[i].venue.region + " " + response.data[i].venue.country);
-                console.log("Show starts at " + response.data[i].datetime);
+                console.log("Show starts at " + moment(response.data[i].datetime).format("dddd, MMMM Do YYYY, h:mm:ss a"));
                 console.log("");
                 console.log("= = = = = = = = = = = = = =");
             }
@@ -258,19 +259,22 @@ function inputInquirer (userInterest) {
                 let dataArr = data.split(",");
           
                 if (dataArr[0] === "Song Info"){
+                    console.log("");
+                    console.log("I love this song and think you will too. Check it out!");
                     spotifyThatSong(dataArr[1]);
                 }
 
                 else if (dataArr[0] === "Movie Details") {
+                    console.log("");
+                    console.log("If you're in the mood for a movie, you should check this one out!");
                     omdbThatFilm(dataArr[1]);
                 }
 
                 else if (dataArr[0] === "Band or Artist Tour Dates") {
+                    console.log("");
+                    console.log("Maybe " + dataArr[1] + " will be performing in your town soon?");
                     bandInTown(dataArr[1]);
                 }
           });
     }
 }
-
-//To-Do List:
-    // Implement Moment in the Bands in town function
