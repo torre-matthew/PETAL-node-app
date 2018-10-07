@@ -6,6 +6,7 @@ let spotifyKeys = require("./keys.js");
 let fs = require("fs");
 let moment = require("moment");
 
+// Inquirer prompt to be presented to the user first
 inquirer.prompt([
 {
     type: "list",
@@ -16,13 +17,14 @@ inquirer.prompt([
 }
 
 ]).then(function(userInterest){  
-    
+// Log the users choice to the log.txt file.
     fs.appendFile("log.txt", userInterest.interest + "\n", function(err) {
         if (err) {
           return console.log(err);
         }
 
         else {
+// Call the inputInquirer function with the users choice passed as a param so that the correct that the correct experience is delivered. 
             inputInquirer(userInterest.interest);        
         }
     });
@@ -33,7 +35,7 @@ inquirer.prompt([
 function bandInTown(bandorartist) {
     axios.get("https://rest.bandsintown.com/artists/" + bandorartist + "/events?app_id=codingbootcamp")
     .then(function(response) {
-
+// The the users input (bandorartist) coming from the inputInquirerer has a match from the BandsInTown API, print data to the console
         if (response.data.length > 0) {
 
             for (i = 0; i < response.data.length; i++) {
@@ -45,7 +47,7 @@ function bandInTown(bandorartist) {
                 console.log("= = = = = = = = = = = = = =");
             }
         }
-
+// If the users input coming from teh inputInquirer function has no match, use inquirer again to ask the user if they'd like to try again.
         else {
             console.log("Sorry we couldn't find any shows for " + bandorartist);
 
@@ -59,10 +61,11 @@ function bandInTown(bandorartist) {
                 ]).then(function(confirmresponse){
                     
                     if (confirmresponse.tryagain === true) {
+// If the user does want to search again make sure that the correct param is passed back into the inputInquirer function.
                         let userInterest = "Band or Artist Tour Dates";
                             inputInquirer(userInterest);
                 } 
-                
+// If the user doesn't want to search again after a failed attempt, give them a kind goodbye.
                     else {
                         console.log("All good! Come back and see me later if you need anything else.");
                 }
@@ -80,10 +83,9 @@ let spotify = new Spotify({
   id: spotifyKeys.spotify.id,
   secret: spotifyKeys.spotify.secret
 });
-
     spotify.search({ type: 'track', query: song })
     .then(function(response) {
-        
+// If the users song choice has results from the spotify API, print the results to the page
         if (response.tracks.items.length > 0) {
             for (let i = 0; i < response.tracks.items.length; i++) {    
                 console.log("");
@@ -97,7 +99,7 @@ let spotify = new Spotify({
         }
 
         else {
-
+// If the users song choice being passed by the inputInquirer function doesn't return any data from the spotify API run another inquirer to ask if they'd like to try again.
             console.log("Sorry we couldn't find any results for " + song);
 
             inquirer.prompt([
